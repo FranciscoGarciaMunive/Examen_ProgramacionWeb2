@@ -1,0 +1,51 @@
+extends ./layout/index.pug 
+block compartircontenido
+    .p-4
+    center.h1 #{pagina}
+    .p-4
+    main.container.mt-5 
+        .row
+            .col-md-12
+                h2.d-block.w-100.text-center Agregar Gerente 
+                if (errores)
+                    each error in errores 
+                        .alert.col.alert-danger.text-center=error.mensaje
+            .row.justify-content-center.col 
+                .col-md-8
+                    form(action="/nuevoGerente" method="POST" class="was-validated")
+                        .form-group 
+                            label(for="id_grt") id_grt
+                            input#id_grt(type="text", placeholder="Identificador" name="id_grt", class="form-control", value=id_grt ,readonly="readonly")
+                        .form-group 
+                            label(for="nombre") nombre 
+                            input#nombre(type="text", placeholder="tu nombre" name="nombre", required minlength = "2"
+                            ,class="form-control", value=nombre)
+                            .invalid-feedback Please fill out this field.
+                            .valid-feedback Valid.
+                        .form-group 
+                            label(for="ap_paterno") apellido_paterno
+                            input#ap_paterno(type="text", placeholder="tu apellido paterno" name="ap_paterno", required minlength = "2"
+                            ,class="form-control", value=ap_paterno)
+                            .invalid-feedback Please fill out this field.
+                            .valid-feedback Valid.
+                        .form-group 
+                            label(for="ap_materno") apellido_materno
+                            input#ap_materno(type="text", placeholder="tu apellido materno" name="ap_materno", required minlength = "2"
+                            ,class="form-control", value=ap_materno)
+                            .invalid-feedback Please fill out this field.
+                            .valid-feedback Valid.
+                        .form-group 
+                            label(for="telefono") telefono
+                            input#correo(type="text", placeholder="tu telefono" name="telefono", required minlength = "2"
+                            ,class="form-control", value=telefono)
+                            .invalid-feedback Please fill out this field.
+                            .valid-feedback Valid.
+                        .form-group 
+                            label(for="imagen") Imagen 
+                            input#imagen(type="text", placeholder="tu imagen" name="imagen", required
+                            ,class="form-control", value=imagen)
+                            .invalid-feedback Please fill out this field.
+                            .valid-feedback Valid.
+                        
+                        center
+                            input.btn.btn-outline-success(type="submit")

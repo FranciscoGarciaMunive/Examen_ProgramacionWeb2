@@ -1,0 +1,19 @@
+extends ./layout/index.pug
+block compartircontenido
+    h1 #{pagina} 
+    a(href=`/guardarHotel`,class=`btn btn-success btn-clock`) CREAR NUEVO HOTEL
+    main.container.mt-5 
+        .row 
+            each hotel in hoteles
+                .col-md.col-lg-4.mv-4 
+                    .card 
+                        img.card-img-top(src=`img/${hotel.imagen}.png`)
+                        .card-body 
+                            h2=hotel.nombre
+                            h2=hotel.direccion
+                            h2=hotel.correo
+                            h2=hotel.telefono
+
+                            
+                        a(href=`/cambiarHotel?id_htl=${hotel.id_htl}`,class=`btn btn-success btn-clock`) Editar
+                        a(href=`/eliminarHotel?id_htl=${hotel.id_htl}`,class=`btn btn-danger btn-clock`) Eliminar 

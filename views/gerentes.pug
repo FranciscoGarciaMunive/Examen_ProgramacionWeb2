@@ -1,0 +1,20 @@
+extends ./layout/index.pug
+block compartircontenido
+    h1 #{pagina} 
+    a(href=`/guardarGerente`,class=`btn btn-success btn-clock`) CREAR NUEVO GERENTE
+    main.container.mt-5 
+        .row 
+            each gerente in gerentes
+                .col-md.col-lg-4.mv-4 
+                    .card 
+                        img.card-img-top(src=`img/${gerente.imagen}.png`)
+                        .card-body 
+                            h2=gerente.nombre
+                            h2=gerente.ap_paterno
+                            h2=gerente.ap_materno
+                            h2=gerente.telefono
+
+                            
+                        a(href=`/cambiarGerente?id_grt=${gerente.id_grt}`,class=`btn btn-success btn-clock`) Editar
+                        
+                        a(href=`/eliminarGerente?id_grt=${gerente.id_grt}`,class=`btn btn-danger btn-clock`) Eliminar 
